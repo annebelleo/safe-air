@@ -1,12 +1,14 @@
 // https://airvisual.com/api/documentation
 
-// var APIKey = "3v9tLnFRvW7F9bWGB";
+var APIKey = "3v9tLnFRvW7F9bWGB";
 // var userInput = document.getElementById('input').value;
-// var endpoint = `http://api.airvisual.com//v2/nearest_city?lat=${latitude}&lon=${longitude}&rad=${radius}&key=${APIKey}`;
-var x = document.getElementById("demo");
-console.log(x);
+
+var x = document.createElement("p");
+var latitude;
+var longitude;
 
 function getLocation() {
+    console.log("function ran")
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     }
@@ -16,39 +18,31 @@ function getLocation() {
 }
 
 function showPosition(position) {
+    console.log("function ran");
+    latitude = position.coords.latitude
+    longitude = position.coords.longitude
+    return latitude;
+    return longitude;
     x.innerHTML = "Latitude: " + position.coords.latitude +
         "<br>Longitude: " + position.coords.longitude;
+    // console.log(x.innerHTML)
 }
 
-function showError(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            x.innerHTML = "User denied the request for Geolocation."
-            break;
-        case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Location information is unavailable."
-            break;
-        case error.TIMEOUT:
-            x.innerHTML = "The request to get user location timed out."
-            break;
-        case error.UNKNOWN_ERROR:
-            x.innerHTML = "An unknown error occurred."
-            break;
-    }
+var endpoint = `http://api.airvisual.com//v2/nearest_city?lat=${latitude}&lon=${longitude}&rad=5&key=${APIKey}`;
+console.log(endpoint);
+
+function results() {
+    fetch(endpoint)
+        .then(
+            function(data) {
+                return data.json();
+            })
+
+        .then(function(json) {
+            console.log(json);
+        })
+        .catch(
+            err => {
+                console.log(err);
+            });
 }
-
-// function results() {
-//     fetch(endpoint)
-//         .then(
-//             function(data) {
-//                 return data.json();
-//             })
-
-//         .then(function(json) {
-//             console.log(json);
-//         })
-//         .catch(
-//             err => {
-//                 console.log(err);
-//             });
-// }
