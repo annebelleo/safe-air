@@ -14,18 +14,12 @@ function getLocation() {
     }
 }
 
-function showPosition(position, APIKey) {
+function showPosition(position) {
     x.innerHTML = "Latitude: " + position.coords.latitude +
         "<br>Longitude: " + position.coords.longitude;
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
     results(latitude, longitude, APIKey);
-    console.log("function ran");
-}
-
-function getAPIData(latitude, longitude, APIKey) {
-    console.log("function ran")
-    results();
 }
 
 function results(latitude, longitude, APIKey) {
