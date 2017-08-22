@@ -4,14 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <title>How Safe is Your Air?</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 
 <body>
-    <h1>how safe is the air you're breathing?</h1>
-    <button onclick="getLocation()">let's see</button>
-    <p id="demo"></p>
-
+	<div id="wrapper">
+		<div id="content">
+			<div id="header">
+	   			<h2>how safe is the air you're breathing?</h2>
+			</div>
+			<div id="button">
+    			<button onclick="getLocation()">let's see</button>
+    		</div>
+    		<div id="text">
+    			<p id="index"></p>
+    			<p id="quality"></p>
+    			<p id="results"></p>
+    		</div>
+    		<div id="progressBar"></div>
+    	</div>
+    	<div id="footer">
+    		<p>The information provided using this web site is only intended to be general summary information to the public. Statistics can also be found at <a href="https://airnow.gov/">AirNow</a> and <a href="https://airvisual.com/">AirVisual</a>.</p>
+    	</div>
+    </div>
     <script src="script.js"></script>
 </body>
 
