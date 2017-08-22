@@ -1,1 +1,35 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
 
+body {
+	background: linear-gradient(90deg, beige, bisque) center center fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+
+h2, p {
+	text-align: center;
+	font-family: 'Roboto', Arial
+}
+
+#content {
+	margin: 10%;
+}
+
+#button {
+	display: flex;
+    justify-content: center;
+    margin: 5%;
+}
+
+#myProgress {
+	margin-left: 25%;
+    width: 50%;
+    background-color: grey;
+}
+#myBar {
+    width: 1%;
+    height: 30px;
+    text-align: center;
+    color: white;
+}
