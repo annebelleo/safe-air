@@ -7,16 +7,14 @@ var longitude;
 
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.watchPosition(showPosition);
+        navigator.geolocation.getCurrentPosition(getCoordinates);
     }
     else {
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
 
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude;
+function getCoordinates(position) {
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
     results(latitude, longitude, APIKey);
@@ -32,6 +30,11 @@ function results(latitude, longitude, APIKey) {
 
         .then(function(json) {
             console.log(json);
+            var aqiIndex = json.data.current.pollution.aqius;
+            x.innerHTML = `AQI Index: ${json.data.current.pollution.aqius}`;
+            if (aqiIndex <= 50) {
+                console.log("things look good fam");
+            }
         })
         .catch(
             err => {
